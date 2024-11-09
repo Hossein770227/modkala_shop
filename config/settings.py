@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
+import os
 from pathlib import Path
 from environs import Env
 
@@ -43,6 +44,9 @@ INSTALLED_APPS = [
     # my apps
     'accounts',
     'home',
+
+    # third party apps
+    'rosetta',
 ]
 
 MIDDLEWARE = [
@@ -114,11 +118,13 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'fa'
+# LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
-
+TIME_ZONE = 'Asia/Tehran'
+# TIME_ZONE = 'UTC'
 USE_I18N = True
+USE_L10N = True
 
 USE_TZ = True
 
@@ -136,3 +142,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # accounts config
 
 AUTH_USER_MODEL = 'accounts.MyUser'
+
+LOCALE_PATHS = [
+    os.path.join(BASE_DIR, 'templates/locale'),
+]
+
+LANGUAGES =(
+    ('en', 'English'),
+    ('fa', 'Persian'),
+)
