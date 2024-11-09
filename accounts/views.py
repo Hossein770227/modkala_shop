@@ -87,7 +87,7 @@ def login_view(request):
             user =form.get_user()
             login(request, user)
             messages.success(request, _('you successfully login'))
-            return redirect('books:book_list')
+            return redirect('home:home')
     form = AuthenticationForm()
     return render(request, 'registration/login.html', {'form':form})
 
@@ -96,7 +96,7 @@ def logout_view(request):
     if request.method =='POST':
         logout(request)
         messages.error(request, _('you successfully logout'))
-        return redirect('books:book_list')
+        return redirect('home:home')
 
 # password change
 
